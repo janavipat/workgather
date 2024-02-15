@@ -13,7 +13,7 @@ function Layout({ children }
   return (
     <>
 
-    <body>
+    <body style={{backgroundColor:"white"}}>
 
 
 

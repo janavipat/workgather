@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import '../footer/footer.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import { useContext } from "react";
 // import dynamic from 'next/dynamic'; // Import dynamic for dynamic imports
 
@@ -27,10 +29,11 @@ const Footer2 =()=> {
         className="line-shape"
       />
       <div className="container">
+      
         <div className="footer-top">
           <div className="row gy-5">
             <div className="col-md-6 col-lg-5">
-              <div className="footer-widget with-logo">
+              <div className="footer-widget ">
                 <div className="footer-logo">
                   <Link legacyBehavior href="/">
                     <a>
@@ -39,7 +42,9 @@ const Footer2 =()=> {
                   </Link>
                 </div>
                 <p>
-                Book Your Desired Service in a Few Clicks: Streamlined Booking for All Your Home Service Needs!
+                Book Your Desired Service in a Few,</p>
+                <p> Clicks: Streamlined Booking for ,</p>
+                <p> All Your Home Service Needs!
                 </p>
                 <div className="request-btn">
                   <Link legacyBehavior href="/service">
@@ -107,10 +112,10 @@ const Footer2 =()=> {
                 <div className="information">
                   <div className="info">
                     <div className="icon">
-                    <img src="assets/images/phone-call-svgrepo-com (1).svg" alt="" />
+                    <i className="fas fa-phone-alt" />
                     </div>
                     <div className="desc">
-                      <a href="tel:01761111456">+91 8866591978</a>
+                    <p><a href="tel:01761111456">+91 8866591978</a></p>
                       <a href="tel:01761111555">+91 8866591978</a>
                     </div>
                   </div>
@@ -119,7 +124,7 @@ const Footer2 =()=> {
                       <i className="far fa-envelope" />
                     </div>
                     <div className="desc">
-                      <a href="mailto:info@example.com">info@example.com</a>
+                      <p><a href="mailto:info@example.com">info@example.com</a></p>
                       <a href="mailto:info@support.com">info@support.com</a>
                     </div>
                   </div>
@@ -149,7 +154,7 @@ const Footer2 =()=> {
             <div className="col-lg-6">
               <div className="footer-social-media">
                 <ul>
-                  <li>
+                  <li style={{marginLeft:"780px"}}>
                     <a href="https://www.facebook.com">
                       <i className="fab fa-facebook-f" />
                     </a>
