@@ -7,14 +7,14 @@ function AboutArea() {
   return (
     <section id="down"  style={{backgroundColor:"white"}}>
       {/* <Breadcrumb pageName="About Us" pageTitle="About Us" /> */}
-      <div className="container">
-        <div className="row">
+      <div className="container" style={{marginBottom:"500"}}>
+        <div>
           <div
             className="col-lg-6 wow animate fadeInLeft"
             data-wow-delay="1800ms"
             data-wow-duration="1500ms"
           >
-            <div className="about-left">
+            <div className="about-left" style={{backgroundColor:"white"}}>
               <div className="about-title">
                 <span>About Us!</span>
                 

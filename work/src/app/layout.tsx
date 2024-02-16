@@ -5,6 +5,7 @@ import React from "react";
 
 import Footer2 from "./footer/Footer2";
 import Header2 from "./header/Header2";
+import { MyProvider } from "./context";
 
 function Layout({ children }
   :{
@@ -13,19 +14,7 @@ function Layout({ children }
   return (
     <>
 
-    <body style={{backgroundColor:"white"}}>
-
-
-
-
-   <Header2 />
-      {children}
-    <Footer2 />
-  
-
-      
-
-    </body>
+    <body style={{backgroundColor:"white"}}><MyProvider> {children}</MyProvider> </body>
       <Head>
         <title>Workdeal</title>
         <meta charSet="UTF-8" />

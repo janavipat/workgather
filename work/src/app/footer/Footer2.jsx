@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import '../footer/footer.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import MyContext from "../context";
 import { useContext } from "react";
 // import dynamic from 'next/dynamic'; // Import dynamic for dynamic imports
 
@@ -12,13 +12,13 @@ import { useContext } from "react";
 
 const Footer2 =()=> {
 
-//   const { serviceType, updateVariable } = useContext(MyContext);
+  const { serviceType, updateVariable } = useContext(MyContext);
   
 
   const handleService = (input) => {
     // console.log(input);
-    // updateVariable({"location":"","category":input,"pricerange":"","rating":""});
-    console/log(input)
+    updateVariable({"location":"","category":input,"pricerange":"","rating":""});
+    // console/log(input)
   }
 
   return (

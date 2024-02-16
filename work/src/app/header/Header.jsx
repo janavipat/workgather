@@ -1,5 +1,5 @@
 "use client";
-import "../header/header.css"
+import "../header/mainheader.css"
 import Link from "next/link";
 import { useRouter,usePathname } from 'next/navigation';
 
@@ -50,7 +50,7 @@ function reducer(state, action) {
   }
 
 }
-function Header2() {
+function Header() {
     const initialService = {
         location: "",
         category: "",
@@ -66,13 +66,13 @@ function Header2() {
   const { serviceType, updateVariable } = useContext(MyContext);
   const handleInitialServices = () => {
     updateVariable(initialService);
-    console.log("not available")
+   
   };
   // menu fuction for toggle
   function handleMenu(menuName) {
     dispatch({ type: "TOGGLE", payload: menuName });
   }
-
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const burger = document.querySelector(".mobile-menu");
     const nav = document.querySelector(".main-nav");
@@ -83,17 +83,28 @@ function Header2() {
     menuClose.addEventListener("click", () => {
       nav.classList.remove("slidenav");
     });
+    window.addEventListener('scroll',()=>{
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    })
   });
 
   // sticky header
+ 
+
   
+   
   return (
-    <header
+    <header 
       ref={headerRef}
       // just use one header class for your project
-      className={"header-1 sticky_top sticky"}
+      className={scrolled ? 'header-bg' : 'header'}
+      
     >
-      <div className="header-logo">
+      <div className="header-logo" >
         <Link legacyBehavior href="/">
           <a>
             <img
@@ -185,4 +196,4 @@ function Header2() {
   );
 }
 
-export default Header2;
+export default Header;

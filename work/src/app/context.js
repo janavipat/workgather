@@ -1,5 +1,5 @@
 // MyContext.js
-"use strict";
+"use client";
 import React, { createContext, useState } from 'react';
 
 // Create the context
@@ -15,22 +15,22 @@ export const MyProvider = ({ children }) => {
   };
   
 
-//   const [serviceName, setServiceName] = useState({});
+  const [serviceName, setServiceName] = useState({});
 
-//   const updateServiceName = (newValue) => {
-//     setServiceName(newValue);
-//   };
+  const updateServiceName = (newValue) => {
+    setServiceName(newValue);
+  };
 
-//   const [isService, setIsService] = useState(false);
+  const [isService, setIsService] = useState(false);
 
-//   const updateIsService= (newValue) => {
-//     setIsService(newValue);
-//   };
+  const updateIsService= (newValue) => {
+    setIsService(newValue);
+  };
 
 
 // , serviceName,updateServiceName,isService,updateIsService
   return (
-    <MyContext.Provider value={{ serviceType, updateVariable }}>
+    <MyContext.Provider value={{ serviceType, updateVariable, serviceName,updateServiceName,isService,updateIsService }}>
       {children}
     </MyContext.Provider>
   );

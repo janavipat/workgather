@@ -5,8 +5,8 @@
   }
 
 
-header {
-  position: absolute;
+.header {
+  position: fixed;
   left: 0;
   top: 0;
   width: 105%;
@@ -16,8 +16,13 @@ header {
   justify-content: space-between;
   padding: 0 100px;
   z-index: 1;
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(235, 241, 228);
+  transition: background-color 0.3s ease;
 
+}
+.header-bg {
+  position: absolute;
+  background-color:white; /* Change this to the desired color when scrolled */
 }
 
 .header-logo a img {

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import React, { useMemo,useContext } from "react";
 import { MyContext } from "../context";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import SwiperCore, { Autoplay,Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import serviceData from "../../data/service/creative_services.json";
 
