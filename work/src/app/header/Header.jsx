@@ -60,10 +60,21 @@ function Header() {
     const router = useRouter();
   const [state, dispatch] = useReducer(reducer, initialState);
   const currentRoute = usePathname();
-  const headerRef = useRef(null);
+  //const headerRef = useRef();
   const [mobileHeader,setMobileheader]=useState(false);
-
+ 
   const { serviceType, updateVariable } = useContext(MyContext);
+
+
+
+  
+
+
+
+
+
+
+
   const handleInitialServices = () => {
     updateVariable(initialService);
    
@@ -72,36 +83,37 @@ function Header() {
   function handleMenu(menuName) {
     dispatch({ type: "TOGGLE", payload: menuName });
   }
-  const [scrolled, setScrolled] = useState(false);
+ // const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const burger = document.querySelector(".mobile-menu");
     const nav = document.querySelector(".main-nav");
     const menuClose = document.querySelector(".remove");
+    
     burger.addEventListener("click", () => {
       nav.classList.add("slidenav");
     });
     menuClose.addEventListener("click", () => {
       nav.classList.remove("slidenav");
     });
-    window.addEventListener('scroll',()=>{
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    })
-  });
-
-  // sticky header
- 
+    const headers = document.querySelector(".header");
 
   
+  },[]);
+
+  
+  
+  
+
+
+
+
    
   return (
     <header 
-      ref={headerRef}
-      // just use one header class for your project
-      className={scrolled ? 'header-bg' : 'header'}
+    //  ref={headerRef}
+      // just use one header class for your proj                          ect
+      className={"header"}
+      
       
     >
       <div className="header-logo" >

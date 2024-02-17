@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, useContext, useEffect } from "react";
-import Select from "react-select";
+// import Select from "react-select";
 import  MyContext,{MyProvider}  from "../context";
 import Cookies from "universal-cookie";
 import './banner.css'
@@ -44,7 +44,7 @@ function Banner1(props) {
     setShowTooltip(false);
   };
   function handleSelectChange(event) {
-    console.log(event);
+   
     setSelectedOption(event);
     updateVariable({
       location: event.value,
@@ -158,7 +158,7 @@ function Banner1(props) {
     }),
   };
   return (
-    <section className="hero-area" style={{height:"700"}}>
+    <section className="hero-area" style={{height:"580"}}>
       <div className="container-fluid">
         <div className="hero-wrapper">
           <div
@@ -166,8 +166,7 @@ function Banner1(props) {
             data-wow-delay="200ms"
             data-wow-duration="1500ms"
           >
-            <br/> 
-            <br/> 
+          
             <span>Welcome to WorkDeal</span>
             <h1>Your trusted destination<br/> for all household service<br/>  needs!</h1>
             <p>
@@ -196,32 +195,20 @@ function Banner1(props) {
             <div className="find-service">
               <div className="location-search" style={{ marginTop: "35px" }}>
                 <div className="location-btn">
-                 
-                  <Select
-                    theme={(theme) => ({
-                      ...theme,
-                      borderRadius: 0,
-
-                      padding: 0,
-                      colors: {
-                        ...theme.colors,
-
-                        primary: "#444",
-                      },
-                    })}
-                    styles={customStyles}
-                    components={{
-                      IndicatorSeparator: () => null,
-                    }}
-                    width="250px"
-                    menuColor="#333"
-                    defaultValue={selectedOption}
-                    
+                 <select name="location" id="location" defaultValue={selectedOption}
+                     styles={customStyles}
                     onChange={handleSelectChange}
-                    placeholder="Select"
-                    instanceId="my-unique-id"
-                  ><options value="surat">surat</options></Select>
-                   
+                     placeholder="select"
+                    >
+                  <option value="surat">surat</option>
+                  <option value="ahmadabad">ahmadabad</option>
+                  <option value="vapi">vapi</option>
+                  <option value="rajkot">rajkot</option>
+                  <option value="mehsana">mehsana</option></select>
+
+
+                  
+                    
                 </div>
 
                 <div className="location-form" style={{width:"60"}}>
@@ -234,6 +221,7 @@ function Banner1(props) {
                       onChange={handleInputChange}
                       placeholder="Find Your Services Here"
                       style={{
+                        borderColor:"#91cc8f",
                         width: "350",
                         padding: "10px",
                         fontSize: "16px",
@@ -241,7 +229,7 @@ function Banner1(props) {
                          marginTop: "-75",
                          paddingTop:"15",
                          paddingBottom:"15",
-                        border: "1px solid #ccc",
+                        border: "1px solid #91cc8f",
                         boxShadow: error
                           ? "0px 1px 10px 0px rgb(255 0 0 / 50%)"
                           : "none",

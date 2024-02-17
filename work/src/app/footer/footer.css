@@ -149,6 +149,7 @@
 .request-btn{
   margin-left: 190px;
   margin-top: 20px;
+ 
   /* position: relative; */
   font-family: "Rubik", sans-serif;
   font-style: normal;
@@ -156,12 +157,13 @@
   font-size: 16px;
   display: inline-block;
   color: #ffffff;
-  background-color: green;
-  border: 1px solid #5bb543;
+  background-color: rgb(18, 95, 18);
+  border: 1px solid #e4e9e3;
   box-shadow: 0px 4px 15px rgba(84, 161, 93, 0.1);
   border-radius: 30px;
   padding: 10px 30px;
   overflow: hidden;
+  width:200;
   z-index: 1;
   display: flex;
   transition: all 0.5s ease-out 0s;

@@ -13,7 +13,7 @@
     margin-left:100 ;
   }
   .hero-area{
-    background-color: rgb(235, 241, 228);
+    background-color: rgb(215, 224, 204);
     margin-top: 80;
   }
  
@@ -28,6 +28,7 @@
     display: block;
     margin-bottom: 5px;
     margin-left: 100;
+    padding-top: 46;
   }
   .hero-content p {
     font-size: 18px;
@@ -42,7 +43,7 @@
     position: relative;
     box-sizing: border-box;
     width: 100;
-    margin-top: -20;
+    margin-top: -50;
     margin-left: 100;
     z-index: -0.5;
   }
@@ -128,11 +129,7 @@
   margin-left: -1300;
   margin-top: 950;
   font-size: 25;
-   
-    
-
-
-  }
+   }
 .scroll-down{
     display: flex;
     flex-direction: column;
@@ -188,3 +185,19 @@
 		transform: translate(0);
 	}
 }
+.location-btn select {
+ 
+  width: 160;
+  height: 53;
+  padding-left: 2;
+  color: #ccc;;
+  font-size: 25;
+  background-color: white;
+  border-color: #91cc8f;
+  border-width: 1;
+  border-radius: 20;
+  border-radius: 10px;}
+  .location-btn select:hover{
+    color: black;
+    
+  }

@@ -16,9 +16,9 @@ const Footer2 =()=> {
   
 
   const handleService = (input) => {
-    // console.log(input);
+   
     updateVariable({"location":"","category":input,"pricerange":"","rating":""});
-    // console/log(input)
+    
   }
 
   return (
@@ -41,7 +41,7 @@ const Footer2 =()=> {
                     </a>
                   </Link>
                 </div>
-                <p>
+                <p style={{marginTop: "-38"}}>
                 Book Your Desired Service in a Few,</p>
                 <p> Clicks: Streamlined Booking for ,</p>
                 <p> All Your Home Service Needs!
