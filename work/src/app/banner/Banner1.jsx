@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 // import Select from "react-select";
 import  MyContext,{MyProvider}  from "../context";
 import Cookies from "universal-cookie";
-import './banner.css'
+import "./banner.css"
 
 const allowedInputs = [
   "Salon",
@@ -158,7 +158,7 @@ function Banner1(props) {
     }),
   };
   return (
-    <section className="hero-area" style={{height:"580"}}>
+    <section className="hero-area" style={{height:"680px"}}>
       <div className="container-fluid">
         <div className="hero-wrapper">
           <div
@@ -211,9 +211,10 @@ function Banner1(props) {
                     
                 </div>
 
-                <div className="location-form" style={{width:"60"}}>
+                <div className="location-form" style={{width:"60px"}}>
                   <form method="post" onSubmit={handleSubmit}>
-                    <input
+                   <div className="part" style={{marginTop:"-35px"}}>
+                   <input
                       type="text"
                       name="location"
                       value={inputValue}
@@ -222,13 +223,13 @@ function Banner1(props) {
                       placeholder="Find Your Services Here"
                       style={{
                         borderColor:"#91cc8f",
-                        width: "350",
+                        width: "350px",
                         padding: "10px",
                         fontSize: "16px",
-                        marginLeft: "300",
-                         marginTop: "-75",
-                         paddingTop:"15",
-                         paddingBottom:"15",
+                        marginLeft: "300px",
+                         marginTop: "-75px",
+                         paddingTop:"15px",
+                         paddingBottom:"15px",
                         border: "1px solid #91cc8f",
                         boxShadow: error
                           ? "0px 1px 10px 0px rgb(255 0 0 / 50%)"
@@ -238,25 +239,27 @@ function Banner1(props) {
                         
                       }}
                     />
+                    <div className="button" style={{marginTop:"-37px"}}>
                     <button
                     style={{
                       backgroundColor: error ? "red" : "#5bb543",
-                     marginLeft:"595",
-                     width:"50",
-                     height:"50",
-                     marginTop:"-60",
-                     borderEndStartRadius:"10px",
-                     borderBottomLeftRadius:"10px",}}
+                     marginLeft:"600px",
+                     width:"50px",
+                     height:"50px",
+                     marginTop:"-16px",
+                    borderRadius:"10px"}}
                     onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
                       type="submit"
                     ><Link legacyBehavior href={error ? "/" : "/service "}><img src={"assets/images/search-svgrepo-com.svg"}
                     
                     style={{
-                      width: "30",
-                      marginLeft:"9",
+                      width: "30px",
+                      marginLeft:"9px",
                     }}/>
                     </Link></button>
+                    </div>
+                   </div>
                    
                     {suggestions.length > 0 && (
                       <ul
@@ -334,10 +337,11 @@ function Banner1(props) {
               className="banner"
               style={{ borderRadius: "20px",
              
-              width: "550",
-              height: "440",
-              marginLeft: "750",
-              marginTop: "-450", }}
+              width: "550px",
+              height: "440px",
+              marginLeft: "750px",
+              marginTop: "-500px",
+            marginBottom:"100px" }}
             />
           </div>
         </div>

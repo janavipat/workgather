@@ -22,13 +22,14 @@ const Footer2 =()=> {
   }
 
   return (
-    <footer className="footer-2">
+    <footer className="footer-2" style={{height:"600px", paddingTop:"-40px"}}>
       <img
         src="assets/images/footer-left-shape.png"
         alt=""
         className="line-shape"
+        style={{height:"100px", backgroundColor:"#141f2e"}}
       />
-      <div className="container">
+      <div className="container" style={{height:"100px"}}>
       
         <div className="footer-top">
           <div className="row gy-5">
@@ -41,7 +42,7 @@ const Footer2 =()=> {
                     </a>
                   </Link>
                 </div>
-                <p style={{marginTop: "-38"}}>
+                <p style={{marginTop: "-48px"}}>
                 Book Your Desired Service in a Few,</p>
                 <p> Clicks: Streamlined Booking for ,</p>
                 <p> All Your Home Service Needs!
@@ -153,8 +154,8 @@ const Footer2 =()=> {
             </div>
             <div className="col-lg-6">
               <div className="footer-social-media">
-                <ul>
-                  <li style={{marginLeft:"780px"}}>
+                <ul className="check" style={{marginTop:"-20px", marginLeft:"1200px"}}>
+                  <li>
                     <a href="https://www.facebook.com">
                       <i className="fab fa-facebook-f" />
                     </a>

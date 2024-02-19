@@ -12,7 +12,7 @@ function Layout({ children }
     children:React.ReactNode;
   }) {
   return (
-    <>
+    
 <html>
 <Head>
         <title>Workdeal</title>
@@ -29,16 +29,16 @@ function Layout({ children }
           type="image/gif"
           sizes="20x20"
         />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"  />
+        {/* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"  /> */}
       </Head>
       <body style={{backgroundColor:"white"}}>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+      {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-    ></script>
+    ></script> */}
       
       <MyProvider> {children}</MyProvider> </body>
 </html>
-    </>
+    
   );
 }
 

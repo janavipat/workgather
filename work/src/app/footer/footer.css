@@ -1,14 +1,14 @@
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     
     
   }
   .footer-2{
     background-color: #141f2e;
-    margin-top: 80;
+    margin-top: 80px;
    }
    .container{
     background-color: #141f2e;
@@ -22,7 +22,7 @@
   .footer-2 img{
     opacity: 0.5;
     background-color: #141f2e;
-    margin-bottom: 50;
+    margin-bottom: 50px;
   }
   .footer-top {
     position: relative;
@@ -38,12 +38,12 @@
   }
   .footer .line-shape {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 0px;
+    top: 0px;
     height: 100%;
   }
   .footer-widget{
-    margin-left: 50;
+    margin-left: 50px;
   }
   .footer-widget.with-logo {
     max-width: 270px;
@@ -144,7 +144,14 @@
 }
 .request-btn:hover{
   background-color: #ffffff;
-  color: black;
+  
+}
+.request-btn a{
+  color: rgb(237, 243, 237);
+
+}
+.request-btn a:hover{
+  color: green;
 }
 .request-btn{
   margin-left: 190px;
@@ -163,7 +170,7 @@
   border-radius: 30px;
   padding: 10px 30px;
   overflow: hidden;
-  width:200;
+  width:200px;
   z-index: 1;
   display: flex;
   transition: all 0.5s ease-out 0s;
@@ -191,7 +198,7 @@
 }
 .footer-bottom span{
   background-color: #141f2e;
-  margin-left: 100;
+  margin-left: 100px;
 }
 .fa, .fab, .fad, .fal, .far, .fas {
   -moz-osx-font-smoothing: grayscale;
@@ -213,6 +220,7 @@
 .footer-bottom .footer-social-media ul{
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 .footer-bottom .footer-social-media ul li a:hover {
   background-color: #5bb543;
@@ -222,8 +230,8 @@
 .footer-bottom .footer-social-media ul li a {
   display: block;
   flex-direction: row;
-  padding-top: 10px;
-  margin-top: -10px;
+  padding-top: 2px;
+  margin-top: -5px;
   color: #fff;
   height: 35px;
   width: 35px;
@@ -235,13 +243,17 @@
   justify-content: center;
  
 }
-a, a:hover {
+.footer-bottom span a{
+  color: green;
+}
+.footer-bottom span a:hover {
   text-decoration: none;
+  color: white;
 }
 
 a, ul, ol {
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
   list-style: none;
 }
 

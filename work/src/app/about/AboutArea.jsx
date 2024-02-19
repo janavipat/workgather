@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import "../about/about.css";
+import "./about.css"
 // import Breadcrumb from "../common/Breadcrumb";
 
 function AboutArea() {
   return (
     <section id="down"  style={{backgroundColor:"white"}}>
       {/* <Breadcrumb pageName="About Us" pageTitle="About Us" /> */}
-      <div className="container" style={{marginBottom:"500"}}>
-        <div>
+      <div className="container" style={{marginBottom:"500px", width:"100%" , height:"auto"}}>
+       
           <div
             className="col-lg-6 wow animate fadeInLeft"
             data-wow-delay="1800ms"
@@ -24,18 +24,20 @@ function AboutArea() {
                 
               </div>
               <div className="about-title"><br/>
-                <b style={{fontSize:"20px",marginLeft:"0"}}>Welcome to WorkDeal!</b>
+                <div className="welcome" style={{marginTop:"-50px"}}>
+                <b style={{fontSize:"20px",marginLeft:"0",marginTop:"60px"}}>Welcome to WorkDeal!</b>
 
-                <p>
-                  {" "}
-                  Your premier destination for all your home service needs. We
-                  are a <br/>trusted and reliable online platform that connects
-                  homeowners with top- <br/>rated service professionals in their local
-                  area. Our goal is to make it <br/>effortless for you to find and
-                  hire experienced professionals who can<br /> provide high-quality
-                  services to enhance your home.
-                </p>
-             
+<p>
+  {" "}
+  Your premier destination for all your home service needs. We
+  are a <br/>trusted and reliable online platform that connects
+  homeowners with top- <br/>rated service professionals in their local
+  area. Our goal is to make it <br/>effortless for you to find and
+  hire experienced professionals who can<br /> provide high-quality
+  services to enhance your home.
+</p>
+
+                </div>
               <p>
                 we aim to be your first choice resource for all your home
                 service needs.<br/> Explore our website today and take the first step
@@ -44,11 +46,11 @@ function AboutArea() {
               <ul className="feature-list">
                 <li>
                  <img src={"assets/images/check-all-svgrepo-com.svg"} alt=""  style={{width:"25"}}/>
-               <h5 style={{marginTop:"-30",marginLeft:"30"}}>   Join us Today.</h5>
+               <h5 style={{marginTop:"-40px",marginLeft:"80px",fontSize:"20px"}}>   Join us Today.</h5>
                 </li>
                 <li>
                 <img src={"assets/images/check-all-svgrepo-com.svg"} alt=""  style={{width:"25"}}/>
-                <h5 style={{marginTop:"-30",marginLeft:"30"}}>  Let us find you best service provider.</h5>
+                <h5 style={{marginTop:"-40px",marginLeft:"80px",fontSize:"20px"}}>  Let us find you best service provider.</h5>
                 </li>
               </ul>
 
@@ -63,12 +65,12 @@ function AboutArea() {
                   <span>+</span>
                   <h5>Team Member</h5>
                 </div>
-                <div className="single-count" style={{marginLeft:"80"}}>
+                <div className="single-count" style={{marginLeft:"40px"}}>
                   <span className="counter">1550</span>
                   <span>+</span>
                   <h5>Satisfied Client</h5>
                 </div>
-                <div className="single-count" style={{marginLeft:"80"}}>
+                <div className="single-count" style={{marginLeft:"40px"}}>
                   <span className="counter">20</span>
                   <span>+</span>
                   <h5>Services</h5>
@@ -101,7 +103,7 @@ function AboutArea() {
             </div>
           </div>
         </div>
-      </div>
+     
     </section>
   );
 }

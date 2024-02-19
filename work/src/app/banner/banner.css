@@ -3,37 +3,37 @@
       font-size: 45px;
       line-height: 60px;
       margin-bottom: 5px;
-      font-weight: 1000;
+      font-weight: 1000px;
     }
   }
   .hero-content h1 {
     font-family: "Teko", sans-serif;
-    font-weight: 700;
+    font-weight: 700px;
     color: #142935;
-    margin-left:100 ;
+    margin-left:100px ;
   }
   .hero-area{
     background-color: rgb(215, 224, 204);
-    margin-top: 80;
+    margin-top: 80px;
   }
  
   @media (max-width: 1399px) {
     .hero-content span {
-        font-size: 25;
-        font-weight: 900;
+        font-size: 25px;
+        font-weight: 900px;
     }
   }
   .hero-content span {
     color: #5bb543;
     display: block;
     margin-bottom: 5px;
-    margin-left: 100;
-    padding-top: 46;
+    margin-left: 100px;
+    padding-top: 46px;
   }
   .hero-content p {
     font-size: 18px;
     color: #6c6c6c;
-    margin-left: 100;
+    margin-left: 100px;
   }
   p {
     line-height: 1.8;
@@ -42,28 +42,28 @@
   .location-btn {
     position: relative;
     box-sizing: border-box;
-    width: 100;
-    margin-top: -50;
-    margin-left: 100;
+    width: 100px;
+    margin-top: -50px;
+    margin-left: 100px;
     z-index: -0.5;
   }
   .location-btn i img{
-    margin-top: 70;
+    margin-top: 70px;
     
   }
   .location-btn select{
-    margin-top: 40;
+    margin-top: 40px;
   }
   .suggest span{
-    margin-top: 26;
-  font-size: 20;
+    margin-top: 26px;
+  font-size: 20px;
   color: black;
   }
   .suggest-list{
     display: flex;
     flex-direction: row;
-    margin-left: 270;
-    margin-top: -40;
+    margin-left: 270px;
+    margin-top: -40px;
   }
   .find-service .suggest .suggest-list li a:hover {
     color: #fff;
@@ -71,9 +71,9 @@
     border-radius: 30px;
   }
   .find-service .suggest .suggest-list li a {
-    font-weight: 500;
+    font-weight: 500px;
     font-size: 13px;
-    margin-left: 12;
+    margin-left: 12px;
     display: inline-block;
     text-align: center;
     color: #5bb543;
@@ -126,9 +126,9 @@
   .scroll-down p{
     rotate: 90deg;
   color: #5bb543;
-  margin-left: -1300;
-  margin-top: 950;
-  font-size: 25;
+  margin-left: -1300px;
+  margin-top: 950px;
+  font-size: 25px;
    }
 .scroll-down{
     display: flex;
@@ -139,8 +139,8 @@
 	height: 160px;
     /* display: block; */
    
-    margin-left: 2;
-    margin-top: -1240;
+    margin-left: 2px;
+    margin-top: -1240px;
   /* border-radius: 6px;
 	border: 2px solid #333; */
 	
@@ -187,15 +187,15 @@
 }
 .location-btn select {
  
-  width: 160;
-  height: 53;
-  padding-left: 2;
-  color: #ccc;;
-  font-size: 25;
+  width: 160px;
+  height: 53px;
+  padding-left: 2px;
+  color: #ccc;
+  font-size: 25px;
   background-color: white;
   border-color: #91cc8f;
-  border-width: 1;
-  border-radius: 20;
+  border-width: 1px;
+  border-radius: 20px;
   border-radius: 10px;}
   .location-btn select:hover{
     color: black;
