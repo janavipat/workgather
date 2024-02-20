@@ -1,16 +1,17 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import Breadcrumb from "../common/Breadcrumb";
-import Layout from "../layout";
-import { auth } from "../../firebase/firebase";
+import Breadcrumb from "../../common/Breadcrumb";
+import Layout from "../../layout";
+import { auth } from "../../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { googleProvider } from "../../firebase/firebase";
+import { googleProvider } from "../../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Dialog, DialogTitle } from "@mui/material";
 import { signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
-import services from "../../data/service/creative_services.json";
+import services from "../../../data/service/creative_services.json";
 import axios from "axios";
 import Signuptype from "./sign-up-type";
+
 
 function SignUpPage(props) {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -122,7 +123,7 @@ function SignUpPage(props) {
         <p style={dialogstyle}>these are some terms you have to follow</p>
       </Dialog>
       <h3>Sign Up</h3>
-      <span>
+      <span style={{marginLeft:"130px"}}>
         Do you already have an account?{" "}
         <Link legacyBehavior href="#">
           <a id="txt_for_login" onClick={()=>{props.signup(false);props.login(true)}}>Log in here</a>
@@ -173,15 +174,7 @@ function SignUpPage(props) {
             </label>
             <label htmlFor="password">
               Password*
-              <i
-                onClick={() => togglePasswordVisibility()}
-                className={
-                  !passwordVisible
-                    ? "bi bi-eye-slash"
-                    : "bi bi-eye-slash  bi-eye"
-                }
-                id="togglePassword"
-              />
+              
               <input
                 autoComplete="new-password"
                 type={!passwordVisible ? "password" : "text"}
@@ -191,7 +184,20 @@ function SignUpPage(props) {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+
               />
+              <button style={{width:"20px", marginLeft: "530px"
+  }}
+          type="button"
+          className="password-toggle-button"
+          onClick={togglePasswordVisibility}
+        >
+          {passwordVisible ? (
+            <img src="/assets/images/eye-svgrepo-com (1).svg" alt="Hide password"  style={{marginTop: "-65px"}}/>
+          ) : (
+            <img src="/assets/images/eye-close-svgrepo-com.svg" alt="Show password" style={{marginTop: "-65px"}} />
+          )}
+        </button>
             </label>
           </div>
         </div>
@@ -199,12 +205,12 @@ function SignUpPage(props) {
           <p>
             <input type="checkbox" name="agree" id="check_terms_signup" />I
             agree to the{" "}
-            <a onClick={() => setShowDialog(true)}>Terms &amp; Conditions</a>
+            <a onClick={() => setShowDialog(true)} style={{cursor:"pointer"}}>Terms &amp; Conditions</a>
           </p>
         </div>
         <Signuptype value={typeofacc} setvalue={setTypeOfAcc} />
         {typeofacc == "worker" && (
-          <div>
+          <div style={{marginTop:"280px"}}>
             <div className="col-12">
               <label htmlFor="password">
                 Service*
@@ -213,11 +219,23 @@ function SignUpPage(props) {
                   onChange={(e) => {
                     setServiceType(e.target.value);
                   }}
+
+                  style={{
+                    marginLeft: "30px",
+  width: "200px",
+  height: "40px",
+  borderColor: "#88d088",
+
+ backgroundColor:" transparent",
+  borderWidth: "1px",
+  borderRadius:" 8px",
+
+                  }}
                 >
-                  <option value={""}>select</option>
+                  <option value={""} style={{paddingLeft:"20px"}}>select</option>
                   {services.map((s) => {
                     return (
-                      <option key={s.id} value={s.service_name}>
+                      <option key={s.id} value={s.service_name} style={{paddingLeft:"20px"}}>
                         {" "}
                         {s.service_name}{" "}
                       </option>
@@ -247,13 +265,20 @@ function SignUpPage(props) {
               </label>
             </div>
           </div>
-        )}
-        <input
-          type="button"
+        )}          
+        {/* style={{marginTop:"240px"}} */}
+        {typeofacc == "worker" && <input  
+          type="button" 
           defaultValue="Create Account"
           onClick={register}
           className="btn_create_account"
-        />
+        />}
+        {typeofacc !== "worker" && <input  
+          type="button" style={{marginTop:"240px"}}
+          defaultValue="Create Account"
+          onClick={register}
+          className="btn_create_account"
+        />}
       </form>
       <div className="other-signup">
         <h4>or Sign up WITH</h4>
@@ -264,10 +289,10 @@ function SignUpPage(props) {
           </a>
         </div>
       </div>
-      <p>
+      <p style={{textAlign:"center"}}>
         By clicking the "Sign up" button, you create a WorkDeal account, and you
         agree to WorkDeal's{" "}
-        <a onClick={() => setShowDialog(true)}>Terms &amp; Conditions</a>
+        <a onClick={() => setShowDialog(true)} style={{cursor:"pointer"}}>Terms &amp; Conditions</a>
       </p>
     </div>
   );

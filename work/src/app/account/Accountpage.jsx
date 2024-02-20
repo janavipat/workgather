@@ -13,8 +13,8 @@ import OrderClient from "./OrderClient";
 import { Button, Dialog, DialogTitle, ToggleButton } from "@mui/material";
 import Cropper, { ReactCropperElement } from "react-cropper";
 import "cropperjs/dist/cropper.css";
-import LoginPage from "./login";
-import SignUpPage from "./sign-up";
+import LoginPage from "./login/Login_page";
+import SignUpPage from "./sign-up/sign-up";
 
 function Accountpage() {
   const [workeractive, setWorkerActive] = useState();
@@ -372,7 +372,7 @@ function Accountpage() {
   };
 
   return (
-    <Layout>
+   <>
       <Breadcrumb pageTitle="My Account" pageName="My Account" />
       <Dialog open={showCropImage} onClose={closCropImage}>
         <Cropper
@@ -419,13 +419,13 @@ function Accountpage() {
                       <div className="profile-logout">
                         <div>
                           <h4>Let's get to work?</h4>
-                          <label class="switch">
+                          <label className="switch">
                             <input
                               id="checkbox_worker_active"
                               type="checkbox"
                               onClick={handleWorkerActive}
                             />
-                            <span class="slider round"></span>
+                            <span className="slider round"></span>
                           </label>
                         </div>
                       </div>
@@ -768,7 +768,7 @@ function Accountpage() {
           </div>
         </div>
       </section>
-    </Layout>
+      </>
   );
 }
 

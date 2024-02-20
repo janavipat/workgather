@@ -1,8 +1,9 @@
 import React from 'react'
-import About from "./About"
+import Accountpage from "./Accountpage"
 const page = () => {
   return (
-   <About />
+  <Accountpage />
+  //<div>hello</div>
   )
 }
 

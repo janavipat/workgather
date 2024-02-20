@@ -1,0 +1,51 @@
+
+  .divtypeuser:hover {
+    border-color: #9ffa86;
+    box-shadow: 0px 0px 5px #42ed12;
+  }
+  .divtypeuser {
+    border: 1px;
+      border-top-style: none;
+      border-top-color: currentcolor;
+      border-right-style: none;
+      border-right-color: currentcolor;
+      border-bottom-style: none;
+      border-bottom-color: currentcolor;
+      border-left-style: none;
+      border-left-color: currentcolor;
+    margin: 20px;
+    border-style: solid;
+    border-color: #5bb543;
+    border-radius: 10px;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }.typecontainer {
+    
+    height: fit-content;
+    width: 300px;
+  margin-left: -250px;
+  height: 100px;
+    margin-bottom: 40px;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+  
+    flex-wrap: wrap;
+  }
+
+  .check_sign_up_type {
+    margin: 10px;
+   
+    appearance: none;
+    width: 12px;
+    height: 10px;
+    border-radius: 50%;
+    background-clip: border-box;
+    border: 2px solid rgb(19, 132, 53);
+    background-color: rgba(255, 252, 229, 1);}
+    .check_sign_up_type:checked {
+        background-color: #35ae14;
+      }

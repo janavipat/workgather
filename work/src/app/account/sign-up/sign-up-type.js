@@ -1,4 +1,5 @@
 import React from "react";
+import './signup.css'
 
 function Signuptype(props) {
   function handleClientClick() {
@@ -15,13 +16,14 @@ function Signuptype(props) {
     <center>
       <div className="typecontainer">
         <div onClick={handleWorkerClick}>
-          <div className="divtypeuser">
+          <div className="divtypeuser" style={{height:"303px"}}>
             <div className="chek-wrapper">
               <input
                 type="radio"
                 id="radio_worker"
                 className="check_sign_up_type"
                 name="type"
+               
               />
             </div>
             <img src="assets/images/worker.png" className="worker" />
@@ -35,7 +37,9 @@ function Signuptype(props) {
                 type="radio"
                 id="radio_client"
                 className="check_sign_up_type"
-                name="type"
+                name="type" style={{width: "30px",
+                  
+                marginLeft: "180px"}}
               />
             </div>
             <img src="assets/images/user.png" className="worker" />
@@ -43,6 +47,8 @@ function Signuptype(props) {
           </div>
         </div>
       </div>
+      
+      
     </center>
   );
 }
