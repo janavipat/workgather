@@ -46,6 +46,6 @@ const OrderWorkerSchema = new mongoose.Schema(
 );
 
 
-const OrderWorker = conn.model("OrderWorker", OrderWorkerSchema);
+const OrderWorker = conn.model.OrderWorker || conn.model("OrderWorker", OrderWorkerSchema);
 
 module.exports = OrderWorker;

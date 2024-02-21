@@ -35,17 +35,7 @@ const News = () => {
                      )}
                         <div className="article-content">
                         <a href={article.url} target="_blank" rel="noopener noreferrer"><h2>{article.title}</h2></a> 
-                           
-                            {/* {expandedNews === index ? (
-                                <div>
-                                     <p>{article.description}</p>
-                                    <p><strong>Author:</strong> {article.author}</p>
-                                    <p><strong>Content:</strong> {article.content}</p>
-                                    <button onClick={handleReadLess} className="read-more">Read Less</button>
-                                </div>
-                            ) : (
-                                <button onClick={() => handleReadMore(index)} className="read-more">Read More</button>
-                            )} */}
+                        
                            <div className="button-card"><a href={article.url} className="read-more" target="_blank" rel="noopener noreferrer">Read-More...</a></div>
                         </div>
                     </div>

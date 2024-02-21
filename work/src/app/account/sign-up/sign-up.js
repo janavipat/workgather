@@ -6,7 +6,7 @@ import { auth } from "../../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { googleProvider } from "../../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Dialog, DialogTitle } from "@mui/material";
+import { Dialog, DialogTitle, Paper } from "@mui/material";
 import { signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
 import services from "../../../data/service/creative_services.json";
 import axios from "axios";
@@ -111,16 +111,52 @@ function SignUpPage(props) {
   }
 
   const dialogstyle = {
-    paddingLeft: "30px",
-    paddingRight: "30px",
+    paddingLeft: "50px",
+    paddingRight: "50px",
     paddingBottom: "30px",
+  };
+  const termsListStyle = {
+    listStyleType: "decimal",
+    paddingLeft: "20px",
   };
 
   return (
     <div className="login-form">
-      <Dialog open={showDialog} onClose={handleDialogClose}>
-        <DialogTitle>Terms & Conditions</DialogTitle>
-        <p style={dialogstyle}>these are some terms you have to follow</p>
+      <Dialog open={showDialog} onClose={handleDialogClose} style={dialogstyle} >
+      <Paper style={{ padding: "20px", border: "2px solid green", borderRadius: "5px" }}>
+        <DialogTitle style={{fontSize:"16px", fontWeight:"600"}}>Terms & Conditions</DialogTitle>
+        
+        <ol style={termsListStyle}>
+        <li>
+                The worker agrees to provide the services specified in the contract with the client to the best of their abilities, within the agreed-upon timeframe.
+              </li>
+              <li>
+                The client agrees to provide all necessary information, resources, and access required for the worker to perform their services effectively.
+              </li>
+              <li>
+                Both the worker and the client agree to communicate promptly and effectively regarding any changes, issues, or concerns related to the project.
+              </li>
+              <li>
+                The worker retains ownership of any intellectual property created during the project, unless otherwise specified in the contract.
+              </li>
+              <li>
+                The client agrees to compensate the worker for their services according to the terms outlined in the contract, including any additional fees for revisions or extra work.
+              </li>
+              <li>
+                Both parties agree to maintain confidentiality regarding any sensitive information shared during the course of the project.
+              </li>
+              <li>
+                The worker agrees to deliver the final product or service to the client upon completion, as outlined in the contract.
+              </li>
+              <li>
+                In the event of disputes or disagreements, both parties agree to first attempt to resolve the issue amicably through mediation or arbitration.
+              </li>
+              <li>
+                These terms and conditions may be updated or modified by the platform owner at any time, with notice provided to all users.
+              </li>
+        </ol>
+        
+        </Paper>
       </Dialog>
       <h3>Sign Up</h3>
       <span style={{marginLeft:"130px"}}>
@@ -131,7 +167,7 @@ function SignUpPage(props) {
       </span>
       <form>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-12">
             <label htmlFor="fname">
               First Name*
               <input
@@ -145,7 +181,7 @@ function SignUpPage(props) {
               />
             </label>
           </div>
-          <div className="col-md-6">
+          <div className="col-12">
             <label htmlFor="lname">
               Last Name*
               <input

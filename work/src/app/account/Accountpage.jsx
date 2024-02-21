@@ -212,7 +212,7 @@ function Accountpage() {
           .catch((error) => {
             console.log(error);
             if (error && error.response && error.response.status == 404) {
-              window.location = "/login-google-required";
+              window.location = "/login_google_required";
             } else {
               window.alert(error.message);
             }
@@ -375,14 +375,14 @@ function Accountpage() {
    <>
       <Breadcrumb pageTitle="My Account" pageName="My Account" />
       <Dialog open={showCropImage} onClose={closCropImage}>
-        <Cropper
+        {/* <Cropper
           src={fileForCrop}
           style={{ height: 400, width: "100%" }}
           aspectRatio={1 / 1}
           guides={false}
           crop={onCrop}
           ref={cropperRef}
-        />
+        /> */}
         <ToggleButton onClick={handelCroppedImage}>Done</ToggleButton>
       </Dialog>
       <Dialog open={showDialog} onClose={handleDialogClose}>
@@ -404,7 +404,7 @@ function Accountpage() {
         <SignUpPage signup={setShowSignUp} login={setShowLogin} />
       </Dialog>
       <section className="account-dashboard sec-m">
-        <div className="container">
+        <div className="container1">
           <div className="dashboard-informations">
             <div className="dashboard-content align-items-start">
               <div

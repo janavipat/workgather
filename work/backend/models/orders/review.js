@@ -39,6 +39,6 @@ const WorkerReview = new mongoose.Schema(
   }
 );
 
-const Reviews = conn.model("WorkerReview", WorkerReview);
+const Reviews = conn.model.WorkerReview || conn.model("WorkerReview", WorkerReview);
 
 module.exports = Reviews;

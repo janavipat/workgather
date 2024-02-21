@@ -10,7 +10,7 @@ import { signInWithPopup } from "firebase/auth";
 import { googleProvider } from "../../../firebase/firebase";
 import { auth } from "../../../firebase/firebase";
 import { MyContext } from "../../context";
-import { Dialog, DialogTitle, Paper } from "@mui/material";
+import { Dialog, DialogTitle} from "@mui/material";
 import axios from "axios";
 import '@fortawesome/fontawesome-free/css/all.css';
 
@@ -101,15 +101,15 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="login-form" style={{maxWidth:"900px"}}>
+    <div className="login-form" style={{maxWidth:"600px"}}>
 
 
 
       {/* this is dialog box  */}
-      <Dialog open={showDialog} onClose={handleDialogClose} >
-      <Paper style={{ padding: "20px", border: "2px solid green", borderRadius: "5px" }}>
+      <Dialog open={showDialog} onClose={handleDialogClose}  style={dialogstyle}>
+      
         <DialogTitle style={{fontSize:"16px", fontWeight:"600"}}>Terms & Conditions</DialogTitle>
-        <p style={dialogstyle}>
+      
         <ol style={termsListStyle}>
         <li>
                 The worker agrees to provide the services specified in the contract with the client to the best of their abilities, within the agreed-upon timeframe.
@@ -139,19 +139,13 @@ function LoginPage(props) {
                 These terms and conditions may be updated or modified by the platform owner at any time, with notice provided to all users.
               </li>
         </ol>
-        </p>
-        </Paper>
+        
+     
       </Dialog>
 
 
       {/* Login page  */}
       <h3>Log In</h3>
-      <span>
-        New Member?{" "}
-        <Link legacyBehavior href="#" >
-          <a onClick={()=>{props.signup(true);props.login(false)}}>SignUp here</a>
-        </Link>
-      </span>
       <form autoComplete="false">
         <label htmlFor="email" style={{marginTop:"60px"}}>
           Email*
@@ -179,8 +173,7 @@ function LoginPage(props) {
               setPassword(e.target.value);
             }}
           />
-          <button style={{width:"20px", marginLeft: "530px"
-  }}
+          <button style={{width:"20px", marginLeft: "530px"}}
           type="button"
           className="password-toggle-button"
           onClick={togglePasswordVisibility}

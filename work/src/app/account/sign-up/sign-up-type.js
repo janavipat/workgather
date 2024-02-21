@@ -37,9 +37,10 @@ function Signuptype(props) {
                 type="radio"
                 id="radio_client"
                 className="check_sign_up_type"
-                name="type" style={{width: "30px",
+                name="type" 
+                // style={{width: "30px",
                   
-                marginLeft: "180px"}}
+                // marginLeft: "180px"}}
               />
             </div>
             <img src="assets/images/user.png" className="worker" />
