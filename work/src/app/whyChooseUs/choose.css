@@ -1,0 +1,95 @@
+.container1{
+    margin-top: 80px;
+}
+.sec-title .title-left span {
+    position: relative;
+    font-weight: 800;
+    font-size: 25px;
+    display: inline-block;
+    text-transform: capitalize;
+    color: #5bb543;
+    margin-bottom: 10px;
+  }
+  .sec-title .title-left h2 {
+    font-family: "Teko", sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+    color: #142935;
+    text-transform: capitalize;
+    margin: 0;
+    margin-left: 100px;
+  }
+  p {
+    color: #787878;
+    line-height: 1.8;
+    margin: 0;
+    margin-left: 100px;
+  }
+  .accordion-item{
+    margin-left: 100px;
+  }
+  .why-choose-left .accordion-item .accordion-button {
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #142935;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+  .accordion-button:hover {
+    z-index: 2;
+  }
+  [type="button"]:not(:disabled){
+    cursor: pointer;
+  }
+
+  .accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  }
+  .single-archive:nth-child(1) {
+    border-right: 1px solid #eeeeee;
+  }
+  .single-archive {
+    text-align: center;
+    min-width: calc(50% - 2px);
+    display: inline-block;
+    padding: 40px;
+  }
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+  .single-archive span {
+    font-size: 40px;
+  }
+
+.single-archive span {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 45px;
+  color: #5bb543;
+}
+.single-archive h5 {
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #999ea7;
+    margin: 0;
+  }

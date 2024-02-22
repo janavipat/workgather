@@ -21,7 +21,7 @@ function Breadcrumb({ pageTitle, pageName }) {
                   <a style={{color:"green",fontWeight:"600",marginLeft: " -200px"}}>Home</a>
                 </Link>
                 <img src={"assets/images/right-arrow-backup-2-svgrepo-com.svg"} alt="" />
-                <p> {pageName}</p>
+                <p > {pageName}</p>
               </span>
               <div className="arrow-down" style={{marginBottom:"-40px", marginTop: "-10px",borderColor:"green",
   marginLeft: "40px"}}>

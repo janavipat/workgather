@@ -24,7 +24,8 @@ var loggedin = false;
 
 app.get("/get-review-score", async (req, res) => {
   exec(
-    "python pymodel/sentiment.py " + req.query.text,
+    // "python pymodel/sentiment.py " +
+     req.query.text,
     (error, stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error.message}`);
@@ -257,8 +258,8 @@ app.get("/data", (req, res) => {
     console.log(filter)
 
     execution_str = [
-      "python",
-      "pymodel/model.py",
+      // "python",
+      // "pymodel/model.py",
       filter.tag,
       filter.price,
       filter.location,

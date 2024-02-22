@@ -36,7 +36,8 @@ function Layout({ children }
      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     ></script> */}
       
-      <MyProvider> {children}</MyProvider> </body>
+      <MyProvider>
+      {children}</MyProvider> </body>
 </html>
     
   );

@@ -1,12 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import "./creative.css"
 
 import React, { useMemo,useContext } from "react";
-import { MyContext } from "../context";
-import SwiperCore, { Autoplay,Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import  MyContext  from "../context";
+// import SwiperCore, { Autoplay,Navigation, Pagination } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import serviceData from "../../data/service/creative_services.json";
 
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+
 function CreativeService() {
 
   const handleServiceClick = (val)=>{
@@ -61,9 +69,9 @@ function CreativeService() {
     };
   }, []);
   return (
-    <section id="category" className="creative-services sec-p-top">
-      <div className="container">
-        <div className="row">
+    <section id="category" className="creative-services">
+      <div className="container2">
+        <div className="row1">
           <div className="col-12">
             <div
               className="sec-title layout-1 wow animate fadeInUp"
@@ -76,19 +84,31 @@ function CreativeService() {
               </div>
               <div className="title-right">
                 <strong>Category</strong>
-                <div className="slider-navigations">
+                {/* <div className="slider-navigations">
                   <div className="swiper-button-prev-c">
                     <i className="bi bi-arrow-left" />
                   </div>
                   <div className="swiper-button-next-c">
                     <i className="bi bi-arrow-right" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
-        <Swiper {...slider} className="swiper creative-service-slider">
+        <Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        
+        navigation={true}
+        modules={[Autoplay,Pagination, Navigation]}
+        className="mySwiper"
+      >
           <div className="swiper-wrapper">
             {serviceData.map((item) => {
               const { id, serVice_img_1, service_name, item_number } = item;

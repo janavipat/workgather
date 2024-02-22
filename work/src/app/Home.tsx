@@ -3,7 +3,7 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Header from "./header/Header";
 import Banner1 from "./banner/Banner1"
-// import CreativeService from "./service/CreativeService"
+import CreativeService from "../app/service/CreativeService"
 import WhyChooseUs  from "./whyChooseUs/WhyChooseUs"
 // import Testimonial1 from "./testimonial/Testimonial1"
 import Footer2 from "./footer/Footer2";
@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      {/* {!loading ? (
+      {!loading ? (
         <Preloader />
       ) : (
         <>
@@ -41,16 +41,16 @@ export default function Home() {
               type="image/gif"
               sizes="20x20"
             />
-          </Head> */}
+          </Head>
           <Header/>
           <Banner1 />
-          {/* <CreativeService /> */}
-          {/* <WhyChooseUs /> */}
+           <CreativeService /> 
+          <WhyChooseUs />
           {/* <Testimonial1 /> */}
          
           <Footer2 />
         </>
       )}
 //     </>
-//   );
-// }
+  );
+}

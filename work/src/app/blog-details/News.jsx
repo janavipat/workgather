@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import './news.css';
 
+
+
 const News = () => {
     const [mynews, setMynews] = useState([]);
 
@@ -10,6 +12,9 @@ const News = () => {
         let data = await res.json();
         setMynews(data.articles);
     }
+    
+    
+
 
     useEffect(() => {
         fetchData();
@@ -26,6 +31,8 @@ const News = () => {
     }
    
     return (
+        <>
+       
         <div className="container1" style={{ backgroundColor: "white" }}>
             <div className="justify-content-center" style={{ backgroundColor: "white", marginRight: "-200px", marginTop: "80px" }}>
                 {mynews.map((article, index) => (
@@ -42,6 +49,8 @@ const News = () => {
                 ))}
             </div>
         </div>
+        
+        </>
     );
 }
 

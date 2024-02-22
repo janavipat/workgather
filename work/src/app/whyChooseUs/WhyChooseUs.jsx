@@ -1,5 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
+import './choose.css'
 function WhyChooseUs() {
   // const countUpRef = useRef(null);
   // const targetRef = useRef(null);
@@ -12,9 +13,11 @@ function WhyChooseUs() {
   //     countUp.start();
   //   }
   // }, []);
+
+  
   return (
     <section className="why-choose sec-m">
-      <div className="container">
+      <div className="container1">
         <div className="row">
           <div
             className="col-lg-6 wow animate fadeInDown"
@@ -27,10 +30,10 @@ function WhyChooseUs() {
                   <span>Trust Agency</span>
                   <h2>Best Offered Services</h2>
                   <p>
-                  <b>WorkDeal</b>   provides service to all nearby areas of the city, with a large network of dedicated service providers. We offer our services 24*7. Our workers understand the value of customer's time, so they offer door-to-door services on just a single call.
-                <b>Expert Technician : </b> 
-                We provide only high skilled professionals to make your work done on time.
- <b>Genuine Price : </b>here, we believe in providing genuine pricing for all our home services. Our platform is designed to ensure transparency and fairness, allowing you to receive accurate and competitive quotes from trusted professionals.</p>
+                  <b>WorkDeal</b>   provides service to all nearby areas of the city, with a large<br/> network of dedicated service providers. We offer our services 24*7. Our<br/> workers understand the value of customer's time, so they offer door-to-<br/>door services on just a single call.
+                  <br/> <b>Expert Technician : </b> 
+                We provide only high skilled professionals to make <br/> your work done on time.
+                <br/> <b>Genuine Price : </b>here, we believe in providing genuine pricing for all <br/> our home services. Our platform is designed to ensure transparency <br/> and fairness, allowing you to receive accurate and competitive quotes <br/> from trusted professionals.</p>
                   
                 </div>
               </div>
@@ -44,6 +47,7 @@ function WhyChooseUs() {
                       data-bs-target="#collapseOne"
                       aria-expanded="true"
                       aria-controls="collapseOne"
+                      style={{marginTop:"30px"}}
                     >
                       Ensuring Masks
                     </button>

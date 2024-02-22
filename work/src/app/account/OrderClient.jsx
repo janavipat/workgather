@@ -1,14 +1,20 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import axios from "axios";
 import { auth } from "../../firebase/firebase";
 import { Dialog, DialogTitle,ToggleButton } from "@mui/material";
-import Review from "../review/review";
+import Review from "../review/Review";
 import DialogLayout from "../common/DialogLayout";
 import { connectStorageEmulator } from "firebase/storage";
 
 function OrderClient() {
   const [orders, setOrdersData] = useState([]);
   const [itemToComplete,setItemToComplete]=useState({})
+
+  const [uid, setUid] = useState();
+  const [clientUid, setClientUid] = useState();
+  const [name, setName] = useState();
+  const [workId, setWorkId] = useState();
+  const [review_score, setReviewScore] = useState();
 
   async function getOrders() {
     if (auth.currentUser) {
@@ -22,7 +28,7 @@ function OrderClient() {
           setOrdersData(res.data);
         })
         .catch((error) => {
-          console.log(error);
+          {console.log(error);}
         });
       axios
         .get("http://localhost:5000/get-review-score-from-service", {
@@ -33,11 +39,7 @@ function OrderClient() {
         });
     }
   }
-  const [uid, setUid] = useState();
-  const [clientUid, setClientUid] = useState();
-  const [name, setName] = useState();
-  const [workId, setWorkId] = useState();
-  const [review_score, setReviewScore] = useState();
+ 
 
   function getCurrentComplete(id) {
     for (let i = 0; i < orders.length; i++) {
@@ -82,7 +84,7 @@ function OrderClient() {
         setWorkCount(itemToComplete.uid);
       })
       .catch((error) => {
-        console.log(error);
+        {console.log(error);}
       });
   }
 

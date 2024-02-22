@@ -91,7 +91,7 @@ function Header2() {
     <header
       ref={headerRef}
       // just use one header class for your project
-      className={"header-1 sticky_top sticky"}
+      className={"header-1 "}
     >
       <div className="header-logo">
         <Link legacyBehavior href="/">

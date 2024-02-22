@@ -4,17 +4,17 @@ import CountUp from "react-countup";
 import OrderWorker from "./OrderWorker";
 import UserProfile from "./UserProfile";
 import Breadcrumb from "../common/Breadcrumb";
-import Layout from "../layout";
 import { auth } from "../../firebase/firebase";
 import axios from "axios";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase/firebase";
 import OrderClient from "./OrderClient";
-import { Button, Dialog, DialogTitle, ToggleButton } from "@mui/material";
+import {  Dialog, DialogTitle, ToggleButton } from "@mui/material";
 import Cropper, { ReactCropperElement } from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import LoginPage from "./login/Login_page";
 import SignUpPage from "./sign-up/sign-up";
+import "./account.css"
 
 function Accountpage() {
   const [workeractive, setWorkerActive] = useState();
@@ -308,9 +308,9 @@ function Accountpage() {
       setShowCropImage(true);
     }
   };
-
-  const cropperRef = useRef(null);
   const [cropedFile, setCropedFile] = useState();
+  const cropperRef = useRef(null);
+  
   const onCrop = () => {
     const cropper = cropperRef.current?.cropper;
     setCropedFile(cropper.getCroppedCanvas().toDataURL("image/jpeg"));
@@ -372,403 +372,404 @@ function Accountpage() {
   };
 
   return (
-   <>
-      <Breadcrumb pageTitle="My Account" pageName="My Account" />
-      <Dialog open={showCropImage} onClose={closCropImage}>
-        {/* <Cropper
-          src={fileForCrop}
-          style={{ height: 400, width: "100%" }}
-          aspectRatio={1 / 1}
-          guides={false}
-          crop={onCrop}
-          ref={cropperRef}
-        /> */}
-        <ToggleButton onClick={handelCroppedImage}>Done</ToggleButton>
-      </Dialog>
-      <Dialog open={showDialog} onClose={handleDialogClose}>
-        <DialogTitle>You can't accept more works while offline</DialogTitle>
-        <input
-          className="btn-current-task"
-          type="button"
-          onClick={logout}
-          value="logout"
-        />
-      </Dialog>
-      <Dialog open={showImageUpload} onClose={closeShowImageUpload}>
-        <DialogTitle>Image Uploading : {percentUpload}%</DialogTitle>
-      </Dialog>
-      <Dialog open={showLogin} onClose={closeLogin}>
-        <LoginPage signup={setShowSignUp} login={setShowLogin} />
-      </Dialog>
-      <Dialog open={showSignUp} onClose={closeSignUp}>
-        <SignUpPage signup={setShowSignUp} login={setShowLogin} />
-      </Dialog>
-      <section className="account-dashboard sec-m">
-        <div className="container1">
-          <div className="dashboard-informations">
-            <div className="dashboard-content align-items-start">
-              <div
-                className="nav flex-column nav-pills"
-                id="v-pills-tab"
-                role="tablist"
-                aria-orientation="vertical"
-              >
-                {typeofacc == "worker" && (
+    <>
+    <Breadcrumb pageTitle="My Account" pageName="My Account" />
+    <Dialog open={showCropImage} onClose={closCropImage}>
+      <Cropper
+        src={fileForCrop}
+        style={{ height: 400, width: "100%" }}
+        aspectRatio={1 / 1}
+        guides={false}
+        crop={onCrop}
+        ref={cropperRef}
+      /> 
+      <ToggleButton onClick={handelCroppedImage}>Done</ToggleButton>
+    </Dialog>
+    <Dialog open={showDialog} onClose={handleDialogClose}>
+      <DialogTitle>You can't accept more works while offline</DialogTitle>
+      <input
+        className="custom-button"
+        type="button"
+        onClick={logout}
+        value="logout"
+      />
+    </Dialog>
+    <Dialog open={showImageUpload} onClose={closeShowImageUpload}>
+      <DialogTitle>Image Uploading : {percentUpload}%</DialogTitle>
+    </Dialog>
+    <Dialog open={showLogin} onClose={closeLogin}>
+      <LoginPage signup={setShowSignUp} login={setShowLogin} />
+    </Dialog>
+    <Dialog open={showSignUp} onClose={closeSignUp}>
+      <SignUpPage signup={setShowSignUp} login={setShowLogin} />
+    </Dialog>
+    <section className="account-dashboard custom-sec-m">
+      <div className="custom-container1">
+        <div className="custom-dashboard-informations">
+          <div className="custom-dashboard-content align-items-start">
+            <div
+              className="custom-nav flex-column custom-nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              {typeofacc == "worker" && (
+                <div>
                   <div>
-                    <div>
-                      <div className="profile-logout">
-                        <div>
-                          <h4>Let's get to work?</h4>
-                          <label className="switch">
-                            <input
-                              id="checkbox_worker_active"
-                              type="checkbox"
-                              onClick={handleWorkerActive}
-                            />
-                            <span className="slider round"></span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {typeofacc == "worker" && (
-                  <button
-                    className="nav-link"
-                    id="v-pills-home-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-home"
-                    aria-selected="false"
-                  >
-                    <i className="bi bi-columns-gap" />
-                    Dashboard
-                  </button>
-                )}
-                <button
-                  className="nav-link active"
-                  id="v-pills-profile-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#v-pills-profile"
-                  type="button"
-                  role="tab"
-                  aria-current="page"
-                  aria-controls="v-pills-profile"
-                  aria-selected="true"
-                >
-                  <i className="bi bi-person" />
-                  My Profile
-                </button>
-
-                <button
-                  className="nav-link"
-                  id="v-pills-order-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#v-pills-order"
-                  type="button"
-                  role="tab"
-                  aria-controls="v-pills-order"
-                  aria-selected="false"
-                >
-                  <i className="bi bi-bag-check" />
-                  All Order
-                </button>
-                {typeofacc == "client" && (
-                  <button
-                    className="nav-link"
-                    id="v-pills-settings-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-settings"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-settings"
-                    aria-selected="false"
-                  >
-                    <i className="bi bi-house-door" />
-                    Address
-                  </button>
-                )}
-                <button
-                  className="nav-link"
-                  id="v-pills-logout-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#v-pills-logout"
-                  type="button"
-                  role="tab"
-                  aria-controls="v-pills-logout"
-                  aria-selected="false"
-                >
-                  <i className="bi bi-box-arrow-in-right" />
-                  Logout
-                </button>
-              </div>
-
-              <div className="tab-content" id="v-pills-tabContent">
-                <div
-                  className="tab-pane fade"
-                  id="v-pills-home"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-home-tab"
-                >
-                  <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div className="order-box">
-                        <h5>Order Pending</h5>
-                        <div className="box-inner">
-                          <div className="icon">
-                            <img
-                              src="assets/images/icons/order-box-1.png"
-                              alt=""
-                            />
-                          </div>
-                          <h2>
-                            {" "}
-                            <CountUp
-                              start={0}
-                              end={orderPending}
-                              duration={1}
-                            />
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="order-box">
-                        <h5>Order Completed</h5>
-                        <div className="box-inner">
-                          <div className="icon">
-                            <img
-                              src="assets/images/icons/order-box-2.png"
-                              alt=""
-                            />
-                          </div>
-                          <h2>
-                            {" "}
-                            <CountUp
-                              start={0}
-                              end={orderComplete}
-                              duration={1}
-                            />
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-12">
-                      <div className="order-box">
-                        <h5>Total Order</h5>
-                        <div className="box-inner">
-                          <div className="icon">
-                            <img
-                              src="assets/images/icons/order-box-4.png"
-                              alt=""
-                            />
-                          </div>
-                          <h2>
-                            {" "}
-                            <CountUp
-                              start={0}
-                              end={orderPending + orderComplete}
-                              duration={3}
-                            />
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="tab-pane fade show active"
-                  id="v-pills-profile"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-profile-tab"
-                >
-                  <div className="user-profile">
-                    <div className="user-info">
-                      <div className="thumb">
-                        <center>
-                          {userdata ? (
-                            imageUrl ? (
-                              <img src={imageUrl} />
-                            ) : (
-                              <p>
-                                {userdata.fname.slice(0, 1).toUpperCase()}
-                                {userdata.lname.slice(0, 1).toUpperCase()}
-                              </p>
-                            )
-                          ) : (
-                            ""
-                          )}
-                        </center>
-                      </div>
-                      {userdata != null && (
-                        <div style={{ width: "100%" }}>
-                          <h3>{userdata.fname + " " + userdata.lname}</h3>
-                          <span>{userdata.typeofacc}</span>
-                        </div>
-                      )}
-                      <div className="profile-pic">
-                        <label className="takephoto">
-                          Change Profile Picture
+                    <div className="custom-profile-logout">
+                      <div>
+                        <h4>Let's get to work?</h4>
+                        <label className="custom-switch">
                           <input
-                            id="input-profile-pic"
-                            onChange={handleImageUpload}
-                            style={{ display: "none" }}
-                            type={"file"}
+                            id="checkbox_worker_active"
+                            type="checkbox"
+                            onClick={handleWorkerActive}
                           />
+                          <span className="custom-slider round"></span>
                         </label>
                       </div>
                     </div>
-                    {userdata != null && <UserProfile user={userdata} />}
                   </div>
                 </div>
-                {authentication &&
-                  userdata &&
-                  (typeofacc == "worker" ? (
-                    <OrderWorker
-                      setAvgPrice={setAvgPrice}
-                      service={userdata.service}
-                      pending={setOrderPending}
-                      complete={setOrderComplete}
-                    />
-                  ) : (
-                    <OrderClient />
-                  ))}
-                <div
-                  className="tab-pane fade"
-                  id="v-pills-settings"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-settings-tab"
+              )}
+              {typeofacc == "worker" && (
+                <button
+                  className="custom-nav-link"
+                  id="v-pills-home-tab"
+                  data-custom-toggle="pill"
+                  data-custom-target="#v-pills-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="v-pills-home"
+                  aria-selected="false"
                 >
-                  <div className="user-address">
-                    <div className="head">
-                      <h3>Save Your Address</h3>
-                      <p>
-                        Auction sites present consumers with a thrilling,
-                        competitivenl way to buy the goods and services they
-                        need most.
-                      </p>
-                    </div>
-                    <div className="user-location">
-                      <div className="user-loc">
-                        <div className="icon">
-                          <i className="bi bi-house-door" />
+                  <i className="custom-icon-columns-gap" />
+                  Dashboard
+                </button>
+              )}
+              <button
+                className="custom-nav-link active"
+                id="v-pills-profile-tab"
+                data-custom-toggle="pill"
+                data-custom-target="#v-pills-profile"
+                type="button"
+                role="tab"
+                aria-current="page"
+                aria-controls="v-pills-profile"
+                aria-selected="true"
+              >
+                <i className="custom-icon-person" />
+                My Profile
+              </button>
+  
+              <button
+                className="custom-nav-link"
+                id="v-pills-order-tab"
+                data-custom-toggle="pill"
+                data-custom-target="#v-pills-order"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-order"
+                aria-selected="false"
+              >
+                <i className="custom-icon-bag-check" />
+                All Order
+              </button>
+              {typeofacc == "client" && (
+                <button
+                  className="custom-nav-link"
+                  id="v-pills-settings-tab"
+                  data-custom-toggle="pill"
+                  data-custom-target="#v-pills-settings"
+                  type="button"
+                  role="tab"
+                  aria-controls="v-pills-settings"
+                  aria-selected="false"
+                >
+                  <i className="custom-icon-house-door" />
+                  Address
+                </button>
+              )}
+              <button
+                className="custom-nav-link"
+                id="v-pills-logout-tab"
+                data-custom-toggle="pill"
+                data-custom-target="#v-pills-logout"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-logout"
+                aria-selected="false"
+              >
+                <i className="custom-icon-box-arrow-in-right" />
+                Logout
+              </button>
+            </div>
+  
+            <div className="custom-tab-content" id="v-pills-tabContent">
+              <div
+                className="custom-tab-pane fade"
+                id="v-pills-home"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                <div className="custom-row g-4">
+                  <div className="custom-col-lg-6">
+                    <div className="custom-order-box">
+                      <h5>Order Pending</h5>
+                      <div className="custom-box-inner">
+                        <div className="custom-icon">
+                          <img
+                            src="assets/images/icons/order-box-1.png"
+                            alt=""
+                          />
                         </div>
-                        <p>Address 1</p>
-                        <div className="tooltip">
-                          <div
-                            className="contact-signle hover-border1 d-flex flex-row align-items-center wow fadeInDown"
-                            data-wow-duration="1.5s"
-                            data-wow-delay=".2s"
-                            style={{
-                              visibility: "visible",
-                              animationDuration: "1.5s",
-                              animationDelay: "0.2s",
-                              animationName: "fadeInDown",
-                            }}
-                          >
-                            <div className="icon">
-                              <i className="bi bi-geo-alt" />
-                            </div>
-                            <div className="text">
-                              <h4>Location</h4>
-                              {userdata && (
-                                <div>
-                                  <input
-                                    type={Text}
-                                    id="txt_edit_address"
-                                    value={address1}
-                                    onChange={(e) => {
-                                      setAddress1(e.target.value);
-                                    }}
-                                  />
-                                  <button
-                                    className="btn-current-task"
-                                    type="button"
-                                    onClick={updateAddress}
-                                  >
-                                    Done
-                                  </button>
-                                </div>
-                              )}
-                            </div>
+                        <h2>
+                          {" "}
+                          <CountUp
+                            start={0}
+                            end={orderPending}
+                            duration={1}
+                          />
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="custom-col-lg-6">
+                    <div className="custom-order-box">
+                      <h5>Order Completed</h5>
+                      <div className="custom-box-inner">
+                        <div className="custom-icon">
+                          <img
+                            src="assets/images/icons/order-box-2.png"
+                            alt=""
+                          />
+                        </div>
+                        <h2>
+                          {" "}
+                          <CountUp
+                            start={0}
+                            end={orderComplete}
+                            duration={1}
+                          />
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div className="custom-col-lg-12">
+                    <div className="custom-order-box">
+                      <h5>Total Order</h5>
+                      <div className="custom-box-inner">
+                        <div className="custom-icon">
+                          <img
+                            src="assets/images/icons/order-box-4.png"
+                            alt=""
+                          />
+                        </div>
+                        <h2>
+                          {" "}
+                          <CountUp
+                            start={0}
+                            end={orderPending + orderComplete}
+                            duration={3}
+                          />
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="custom-tab-pane fade custom-show active"
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab"
+              >
+                <div className="custom-user-profile">
+                  <div className="custom-user-info">
+                    <div className="custom-thumb">
+                      <center>
+                        {userdata ? (
+                          imageUrl ? (
+                            <img src={imageUrl} />
+                          ) : (
+                            <p>
+                              {userdata.fname.slice(0, 1).toUpperCase()}
+                              {userdata.lname.slice(0, 1).toUpperCase()}
+                            </p>
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </center>
+                    </div>
+                    {userdata != null && (
+                      <div style={{ width: "100%" }}>
+                        <h3>{userdata.fname + " " + userdata.lname}</h3>
+                        <span>{userdata.typeofacc}</span>
+                      </div>
+                    )}
+                    <div className="custom-profile-pic">
+                      <label className="custom-takephoto">
+                        Change Profile Picture
+                        <input
+                          id="input-profile-pic"
+                          onChange={handleImageUpload}
+                          style={{ display: "none" }}
+                          type={"file"}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  {userdata != null && <UserProfile user={userdata} />}
+                </div>
+              </div>
+              {authentication &&
+                userdata &&
+                (typeofacc == "worker" ? (
+                  <OrderWorker
+                    setAvgPrice={setAvgPrice}
+                    service={userdata.service}
+                    pending={setOrderPending}
+                    complete={setOrderComplete}
+                  />
+                ) : (
+                  <OrderClient />
+                ))}
+              <div
+                className="custom-tab-pane fade"
+                id="v-pills-settings"
+                role="tabpanel"
+                aria-labelledby="v-pills-settings-tab"
+              >
+                <div className="custom-user-address">
+                  <div className="custom-head">
+                    <h3>Save Your Address</h3>
+                    <p>
+                      Auction sites present consumers with a thrilling,
+                      competitivenl way to buy the goods and services they
+                      need most.
+                    </p>
+                  </div>
+                  <div className="custom-user-location">
+                    <div className="custom-user-loc">
+                      <div className="custom-icon">
+                        <i className="custom-icon-house-door" />
+                      </div>
+                      <p>Address 1</p>
+                      <div className="custom-tooltip">
+                        <div
+                          className="custom-contact-signle custom-hover-border1 d-flex flex-row align-items-center custom-wow custom-fadeInDown"
+                          data-custom-wow-duration="1.5s"
+                          data-custom-wow-delay=".2s"
+                          style={{
+                            visibility: "visible",
+                            animationDuration: "1.5s",
+                            animationDelay: "0.2s",
+                            animationName: "fadeInDown",
+                          }}
+                        >
+                          <div className="custom-icon">
+                            <i className="custom-icon-geo-alt" />
+                          </div>
+                          <div className="custom-text">
+                            <h4>Location</h4>
+                            {userdata && (
+                              <div>
+                                <input
+                                  type={Text}
+                                  id="txt_edit_address"
+                                  value={address1}
+                                  onChange={(e) => {
+                                    setAddress1(e.target.value);
+                                  }}
+                                />
+                                <button
+                                  className="custom-button"
+                                  type="button"
+                                  onClick={updateAddress}
+                                >
+                                  Done
+                                </button>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
-                      <div className="user-loc">
-                        <div className="icon">
-                          <i className="bi bi-house-door" />
-                        </div>
-                        <p>Address 2</p>
-                        <div className="tooltip">
-                          <div
-                            className="contact-signle hover-border1 d-flex flex-row align-items-center wow fadeInDown"
-                            data-wow-duration="1.5s"
-                            data-wow-delay=".2s"
-                            style={{
-                              visibility: "visible",
-                              animationDuration: "1.5s",
-                              animationDelay: "0.2s",
-                              animationName: "fadeInDown",
-                            }}
-                          >
-                            <div className="icon">
-                              <i className="bi bi-geo-alt" />
-                            </div>
-                            <div className="text">
-                              <h4>Location</h4>
-                              {userdata && (
-                                <div>
-                                  <input
-                                    type={Text}
-                                    id="txt_edit_address"
-                                    value={address2}
-                                    onChange={(e) => {
-                                      setAddress2(e.target.value);
-                                    }}
-                                  />
-                                  <button
-                                    className="btn-current-task"
-                                    type="button"
-                                    onClick={updateAddress}
-                                  >
-                                    Done
-                                  </button>
-                                </div>
-                              )}
-                            </div>
-                          </div>{" "}
-                        </div>
+                    </div>
+                    <div className="custom-user-loc">
+                      <div className="custom-icon">
+                        <i className="custom-icon-house-door" />
+                      </div>
+                      <p>Address 2</p>
+                      <div className="custom-tooltip">
+                        <div
+                          className="custom-contact-signle custom-hover-border1 d-flex flex-row align-items-center custom-wow custom-fadeInDown"
+                          data-custom-wow-duration="1.5s"
+                          data-custom-wow-delay=".2s"
+                          style={{
+                            visibility: "visible",
+                            animationDuration: "1.5s",
+                            animationDelay: "0.2s",
+                            animationName: "fadeInDown",
+                          }}
+                        >
+                          <div className="custom-icon">
+                            <i className="custom-icon-geo-alt" />
+                          </div>
+                          <div className="custom-text">
+                            <h4>Location</h4>
+                            {userdata && (
+                              <div>
+                                <input
+                                  type={Text}
+                                  id="txt_edit_address"
+                                  value={address2}
+                                  onChange={(e) => {
+                                    setAddress2(e.target.value);
+                                  }}
+                                />
+                                <button
+                                  className="custom-button"
+                                  type="button"
+                                  onClick={updateAddress}
+                                >
+                                  Done
+                                </button>
+                              </div>
+                            )}
+                          </div>
+                        </div>{" "}
                       </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  className="tab-pane fade"
-                  id="v-pills-logout"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-settings-tab"
-                >
-                  <div className="profile-logout">
-                    <center>
-                      <h3>Are you sure?</h3>
-                      <input
-                        className="btn-current-task"
-                        type="button"
-                        onClick={logout}
-                        value="logout"
-                      />
-                    </center>
-                  </div>
+              </div>
+              <div
+                className="custom-tab-pane fade"
+                id="v-pills-logout"
+                role="tabpanel"
+                aria-labelledby="v-pills-settings-tab"
+              >
+                <div className="custom-profile-logout">
+                  <center>
+                    <h3>Are you sure?</h3>
+                    <input
+                      className="custom-button"
+                      type="button"
+                      onClick={logout}
+                      value="logout"
+                    />
+                  </center>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      </>
+      </div>
+    </section>
+  </>
+  
   );
 }
 
