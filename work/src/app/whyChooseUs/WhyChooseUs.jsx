@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import CountUp from "react-countup";
+import AccordionItem from "./AccordionItem"
 import './choose.css'
 function WhyChooseUs() {
-  // const countUpRef = useRef(null);
-  // const targetRef = useRef(null);
 
-  // useEffect(() => {
-  //   const target = targetRef.current;
-  //   const countUp = countUpRef.current;
+  const [openIndex, setOpenIndex] = useState(0); // Index of currently open accordion item
 
-  //   if (target && countUp) {
-  //     countUp.start();
-  //   }
-  // }, []);
+  const toggleAccordion = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? -1 : index));
+  };
 
-  
+  const items = [
+    {
+      title: 'Ensuring Masks ',
+      content:" Wearing Face mask is recommended as part of personal protective equipment and as a public health measure to prevent the spread of viruses. We make sure that worker provided by us is taking care of this."
+  },
+    {
+      title: '24/7 Supports ',
+      content:
+        "Serving 24x7 to our customer is top motto of WorkDeal. Now get services at your door anytime, anywhere."
+    },
+    {
+      title: 'Sanitising Hands',
+      content:
+       " Germs are everywhere! Workers get onto hands and items we touch during daily activities. Cleaning hands at key times with soap and water or hand sanitizer that contains at least 60% alcohol is one of the most important steps we can take to avoid getting spreading germs around people."
+       ,
+    },
+  ];
+
   return (
     <section className="why-choose sec-m">
       <div className="container1">
@@ -37,85 +50,21 @@ function WhyChooseUs() {
                   
                 </div>
               </div>
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingOne">
-                    <button
-                      className="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                      style={{marginTop:"30px"}}
-                    >
-                      Ensuring Masks
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                    Wearing Face mask is recommended as part of personal protective equipment and as a public health measure to prevent the spread of viruses. We make sure that worker provided by us is taking care of this.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingTwo">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      24/7 Supports
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                    Serving 24x7 to our customer is top motto of WorkDeal. Now get services at your door anytime, anywhere.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingThree">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      Sanitising Hands
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                    Germs are everywhere! Workers get onto hands and items we touch during daily activities. 
-                    Cleaning hands at key times with soap and water or hand sanitizer that contains at least 60% alcohol is one of the most important steps we can take to avoid getting spreading germs around people.
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div className="accordion">
+      {items.map((item, index) => (
+        <AccordionItem
+          key={index}
+          title={item.title}
+          content={item.content}
+          isOpen={openIndex === index}
+          onClick={() => toggleAccordion(index)}
+        />
+      ))}
+    </div>
+              
             </div>
           </div>
-          <div className="col-lg-6">
+          
             <div className="why-choose-right">
               <h2
                 className=" wow animate fadeInUp"
@@ -172,7 +121,7 @@ function WhyChooseUs() {
               </div>
               
             </div>
-          </div>
+          
         </div>
       </div>
     </section>

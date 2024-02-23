@@ -1,0 +1,103 @@
+.testimonial{
+    background-color: #85e56b33;
+}
+
+.container3{
+    margin-left: 40px;
+}
+.sec-title .title1-left span {
+  position: relative;
+   font-weight: 500;
+font-size: 20px;
+display: inline-block;
+text-transform: capitalize;
+color: #5bb543;
+margin-bottom: 10px;
+text-align: center;
+  font-size: 23px;
+  padding-top: 40px;
+  margin-left: 600px;
+  font-weight: 700;
+}
+.sec-title .title1-left h2 {
+    font-family: "Teko", sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+    color: #142935;
+    text-transform: capitalize;
+    margin: 0;
+    margin-left: 600px;
+  font-weight: 700;
+  }
+  .testimonial-slide {
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0px 0px 50px rgba(53, 51, 83, 0.1);
+    border-radius: 10px;
+    padding: 50px 25px;
+  }
+  .testimonial-slide .reviewer .thumb img {
+    max-height: 80px;
+    border-radius: 5px;
+  }
+  .reviewer-info h4{
+    width: 300px;
+  margin-left: 50px;
+  font-size: 30px;
+  margin-top: -120px;
+  color: #142935;
+  font-weight: 700;
+  }
+  .reviewer-info span{
+    font-size: 20px;
+  margin-left: -260px;
+}
+.quote{
+    margin-right: -50px;
+}
+  
+  .testimonial-slide .reviewer .thumb i {
+   
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #5bb543;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    opacity: 0.30;
+    margin-left: -370px;
+  }
+  .testimonial-slide p {
+    font-family: "Rubik", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #696969;
+    margin-top: 30px;
+  }
+.swiper {
+    width: 1000px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .swiper-slide1 {
+    background-position: center;
+    background-size: cover;
+    width: 600px;
+    height: 480px;
+  }
+  
+  .swiper-slide1 img {
+    display: block;
+    width: 100px;
+    margin-top: -30px;
+  height: 100px;
+  border-radius: 70%; /* Set border-radius to 50% to make the image appear as a circle */
+  margin-right: 10px;
+  }
+  

@@ -567,6 +567,16 @@ app.post(`/set-review-worker`, updatePrice, async (req, res) => {
     res.status(500).send(error);
   }
 });
+app.post("/testimonial/response" , async (req,res) => {
+ const responseModel = new response(req.body);
+ try{
+  responseModel.save();
+  res.send(responseModel);
+ }
+ catch (error) {
+  res.status(500).send(error);
+}
+});
 
 app.post("/set-current-work", async (request, response) => {
   OrderWorker.findOneAndUpdate(
@@ -602,6 +612,7 @@ app.post("/cancel-service", async (req, res) => {
       res.send(error);
     });
 });
+
 
 app.post("/complete-service", async (req, res) => {
   OrderWorker.findOneAndUpdate(

@@ -16,6 +16,7 @@
     
         margin-top: -42px;
         margin-left: 80px;
+        color: white;
   }
   .breadcrumb-wrapper h2 {
     font-family: "Teko", sans-serif;
@@ -63,7 +64,7 @@
   }
   .breadcrumb-wrapper img{
   
-    margin-left: 20px;
+   
    
   
     background-size: cover;

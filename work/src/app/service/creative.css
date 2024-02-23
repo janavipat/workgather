@@ -11,8 +11,13 @@
     padding-top: 120px;
   }
   
-
-.sec-title .title-left span {
+.title-left1{
+  margin-left: 100px;
+}
+.title-left1 p{
+  margin-left: -40px;
+}
+.sec-title .title-left1 span {
     position: relative;
     font-weight: 500;
     font-size: 20px;
@@ -22,13 +27,13 @@
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 26px;
-    margin-left: 100px;
+   
   }
-  .sec-title .title-left h2 {
+  .sec-title .title-left1 h2 {
     font-family: "Teko", sans-serif;
     font-weight: 600;
     font-size: 45px;
-    margin-left: 100px;
+    
     color: #142935;
     text-transform: capitalize;
    
@@ -68,12 +73,12 @@
   
   /* Add styles for .cre-service-inner */
   .cre-service-inner {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(146, 190, 146, 0.5); /* Transparent green color */
+    background-color: rgba(87, 160, 87, 0.5); /* Transparent green color */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +88,6 @@
     opacity: 0; /* Fade out by default */
     transition: visibility 0s, opacity 0.3s linear; /* Smooth transition */
   }
-  
 
   .swiper-wrapper{
 

@@ -78,7 +78,7 @@ function CreativeService() {
               data-wow-delay="200ms"
               data-wow-duration="1500ms"
             >
-              <div className="title-left">
+              <div className="title-left1">
                 <span>Category</span>
                 <h2>See All Creative Services</h2>
               </div>
@@ -114,26 +114,23 @@ function CreativeService() {
               const { id, serVice_img_1, service_name, item_number } = item;
               return (
                 <SwiperSlide key={id} className="swiper-slide">
-                  <div
-                    className="creative-service wow animate fadeInDown"
-                   
-                    data-wow-delay="200ms"
-                    data-wow-duration="1500ms"
-                  >
-                    <div className="thumb">
-                      <img src={serVice_img_1} alt="" />
-                      <div className="cre-service-inner">
-                        <strong>{item_number}</strong>
-                        <span>Items</span>
-                      </div>
+                <div className="creative-service wow animate fadeInDown"
+                     data-wow-delay="200ms"
+                     data-wow-duration="1500ms">
+                  <div className="thumb">
+                    <img src={serVice_img_1} alt="" />
+                    <div className="cre-service-inner">
+                      <strong>{item_number}</strong>
+                      <span>Items</span>
                     </div>
-                    <h6>
-                      <Link legacyBehavior href="/service">
-                        <a onClick={()=>handleServiceClick(service_name)}>{service_name}</a>
-                      </Link>
-                    </h6>
                   </div>
-                </SwiperSlide>
+                  <h6>
+                    <Link legacyBehavior href="/service">
+                      <a onClick={()=>handleServiceClick(service_name)}>{service_name}</a>
+                    </Link>
+                  </h6>
+                </div>
+              </SwiperSlide>
               );
             })}
           </div>

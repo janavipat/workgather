@@ -5,7 +5,7 @@ import Header from "./header/Header";
 import Banner1 from "./banner/Banner1"
 import CreativeService from "../app/service/CreativeService"
 import WhyChooseUs  from "./whyChooseUs/WhyChooseUs"
-// import Testimonial1 from "./testimonial/Testimonial1"
+import Testimonial1 from "./testimonial/Testimonial1"
 import Footer2 from "./footer/Footer2";
 import Preloader from "./common/Preloader "
 
@@ -46,7 +46,7 @@ export default function Home() {
           <Banner1 />
            <CreativeService /> 
           <WhyChooseUs />
-          {/* <Testimonial1 /> */}
+         <Testimonial1 /> 
          
           <Footer2 />
         </>

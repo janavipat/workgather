@@ -1,7 +1,15 @@
 import React, { useMemo } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+// import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import './test.css'
+
+
+import { EffectCoverflow, Pagination , Autoplay} from 'swiper/modules';
+
 function Testimonial1() {
   const slider = useMemo(() => {
     return {
@@ -31,7 +39,7 @@ function Testimonial1() {
   }, []);
   return (
     <section className="testimonial">
-      <div className="container">
+      <div className="container3">
         <div className="row">
           <div
             className="col-12 wow animate fadeInUp"
@@ -39,19 +47,38 @@ function Testimonial1() {
             data-wow-duration="1500ms"
           >
             <div className="sec-title layout-1">
-              <div className="title-left">
+              <div className="title1-left">
                 <span>Testimonial</span>
                 <h2>our Client Say About Us</h2>
               </div>
             </div>
           </div>
         </div>
-        <Swiper {...slider} className="swiper testimonial-slider">
+        <Swiper  
+      effect={'coverflow'}
+      grabCursor={true}
+      centeredSlides={true}
+      slidesPerView={'auto'}
+      loop={true}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
+      width={100}
+      coverflowEffect={{
+        rotate: 50,
+        stretch: 0,
+        depth: 150,
+        modifier: 1,
+        slideShadows: true,
+      }}
+      pagination={true}
+      modules={[EffectCoverflow, Pagination, Autoplay ]}
+      className="mySwiper"
+    >
           <div className="swiper-wrapper">
             <SwiperSlide
-              className="swiper-slide wow animate fadeInUp"
-              data-wow-delay="200ms"
-              data-wow-duration="1500ms"
+              className="swiper-slide1"
             >
               <div className="testimonial-slide">
                 <div className="quote">
@@ -77,9 +104,8 @@ function Testimonial1() {
               </div>
             </SwiperSlide>
             <SwiperSlide
-              className="swiper-slide wow animate fadeInUp"
-              data-wow-delay="400ms"
-              data-wow-duration="1500ms"
+              className="swiper-slide1"
+             
             >
               <div className="testimonial-slide">
                 <div className="quote">
@@ -103,19 +129,34 @@ function Testimonial1() {
                 </p>
               </div>
             </SwiperSlide>
+            <SwiperSlide
+              className="swiper-slide1"
+             
+            >
+              <div className="testimonial-slide">
+                <div className="quote">
+                  <i className="fas fa-quote-right" />
+                </div>
+                <div className="reviewer">
+                  <div className="thumb">
+                    <img
+                      src="assets/images/testimonial/testiminial-2.jpg"
+                      alt=""
+                    />
+                    <i className="fas fa-quote-left" />
+                  </div>
+                  <div className="reviewer-info">
+                    <h4>janavi Patel</h4>
+                    <span>worker</span>
+                  </div>
+                </div>
+                <p>
+                  "hello"
+                </p>
+              </div>
+            </SwiperSlide>
           </div>
-          <div
-            className="slider-navigations wow animate fadeInUp"
-            data-wow-delay="200ms"
-            data-wow-duration="1500ms"
-          >
-            <div className="swiper-button-prev-c">
-              <i className="bi bi-arrow-left" />
-            </div>
-            <div className="swiper-button-next-c">
-              <i className="bi bi-arrow-right" />
-            </div>
-          </div>
+          
         </Swiper>
       </div>
     </section>

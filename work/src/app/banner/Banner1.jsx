@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, useContext, useEffect } from "react";
-// import Select from "react-select";
+import Select from "react-select";
 import  MyContext,{MyProvider}  from "../context";
 import Cookies from "universal-cookie";
 import "./banner.css"
@@ -76,8 +76,8 @@ function Banner1(props) {
       }
     }
   }, [inputValue]);
-  cookies.set("mycookie", selectedOption);
-  cookies.set("mycookie2", inputValue);
+  // cookies.set("mycookie", selectedOption);
+  // cookies.set("mycookie2", inputValue);
   const options = [
     { value: "Ahmedabad", label: "Ahmedabad" },
     { value: "vadodara", label: "Vadodara" },
@@ -157,6 +157,12 @@ function Banner1(props) {
       color: "#fff",
     }),
   };
+
+
+  useEffect(() => {
+    cookies.set("mycookie", selectedOption);
+    cookies.set("mycookie2", inputValue);
+  }, [selectedOption, inputValue]);
   return (
     <section className="hero-area" style={{height:"680px"}}>
       <div className="container-fluid">
@@ -193,18 +199,33 @@ function Banner1(props) {
               </div>
             )}
             <div className="find-service">
-              <div className="location-search" style={{ marginTop: "35px" }}>
+              <div className="location-search" style={{ marginTop: "70px" }}>
                 <div className="location-btn">
-                 <select name="location" id="location" defaultValue={selectedOption}
-                     styles={customStyles}
+                <Select
+                    // theme={(theme) => ({
+                    //   ...theme,
+                    //   borderRadius: 0,
+
+                    //   padding: 0,
+                    //   colors: {
+                    //     ...theme.colors,
+
+                    //     primary: "#444",
+                    //   },
+                    // })}
+                    styles={customStyles}
+                    components={{
+                      IndicatorSeparator: () => null,
+                    }}
+                    width="250px"
+                    menuColor="#333"
+                    defaultValue={selectedOption}
+                    options={options}
                     onChange={handleSelectChange}
-                     placeholder="select"
-                    >
-                  <option value="surat">surat</option>
-                  <option value="ahmadabad">ahmadabad</option>
-                  <option value="vapi">vapi</option>
-                  <option value="rajkot">rajkot</option>
-                  <option value="mehsana">mehsana</option></select>
+                    placeholder="Select"
+                    instanceId="my-unique-id"
+                  />
+
 
 
                   
@@ -212,9 +233,10 @@ function Banner1(props) {
                 </div>
 
                 <div className="location-form" style={{width:"60px"}}>
-                  <form method="post" onSubmit={handleSubmit}>
-                   <div className="part" style={{marginTop:"-35px"}}>
+                  <form method="post" onSubmit={handleSubmit} className="part"  style={{marginTop:"-38px"}}>
+                   
                    <input
+                     
                       type="text"
                       name="location"
                       value={inputValue}
@@ -222,12 +244,11 @@ function Banner1(props) {
                       onChange={handleInputChange}
                       placeholder="Find Your Services Here"
                       style={{
-                        borderColor:"#91cc8f",
-                        width: "350px",
                         padding: "10px",
                         fontSize: "16px",
+                        width: "350px",
                         marginLeft: "300px",
-                         marginTop: "-75px",
+                        marginTop: "-75px",
                          paddingTop:"15px",
                          paddingBottom:"15px",
                         border: "1px solid #91cc8f",
@@ -236,7 +257,6 @@ function Banner1(props) {
                           : "none",
                         borderRadius: "10px",
                         transition: "box-shadow 1s",
-                        
                       }}
                     />
                     <div className="button" style={{marginTop:"-37px"}}>
@@ -259,7 +279,7 @@ function Banner1(props) {
                     }}/>
                     </Link></button>
                     </div>
-                   </div>
+            
                    
                     {suggestions.length > 0 && (
                       <ul
@@ -267,7 +287,8 @@ function Banner1(props) {
                         style={{
                           listStyleType: "none",
                           padding: "0",
-                          margin: "4px 0",
+                          marginLeft: "300px",
+                          width:"350px",
                           border: "1px solid #ccc",
                           borderRadius: "4px",
                           backgroundColor: "white",

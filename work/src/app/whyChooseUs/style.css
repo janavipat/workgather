@@ -1,0 +1,70 @@
+.accordion {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+.accordion-button {
+  
+    border: none;
+    cursor: pointer;
+    display: block;
+    padding: 10px 15px;
+    text-align: left;
+    width: 40%;
+    outline: none;
+  }
+  
+  
+  .accordion-button.open {
+    
+
+  }
+  
+  .accordion-collapse {
+    overflow: hidden;
+  }
+  
+  .accordion-body {
+    padding: 10px 15px;
+    width: 640px;
+    border: 2px ;
+    border-color: green;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  .why-choose-left .accordion-item .accordion-button {
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #142935;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  } 
+  
+  [type="button"]:not(:disabled){
+    cursor: pointer;
+  }
+
+  /* .accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  } */
+  

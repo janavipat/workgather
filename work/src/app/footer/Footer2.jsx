@@ -54,7 +54,7 @@ const Footer2 =()=> {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-2">
+            <div className="col-md-6 col-lg-2" style={{marginLeft: "-90px"}}>
               <div className="footer-widget">
                 <h4>Explore On</h4>
                 <ul className="footer-menu">
